@@ -27,6 +27,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Archive Release
+      uses: thedoctor0/zip-release@0.7.5
+      with: 
+        type: 'zip'
+        filename: 'saraCICD.zip'
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
